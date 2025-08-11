@@ -1,0 +1,78 @@
+.data-container {
+  border: 2px solid black; 
+  border-radius: 8px; 
+  padding: 20px; 
+  margin: 20px auto; 
+  background-color: #f9f9f9; 
+    margin: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-edit {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.btn-delete {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+/* Add space between the buttons */
+.btn + .btn {
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+
+
+h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Aligns button vertically centered */
+  margin: 0; /* Remove default margin */
+}
+
+
+.create-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background-color: rgba(0, 0, 255, 0.381);
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+   margin-right: 10px;
+   margin-top: 10px;
+}
+
+.create-btn:hover {
+  opacity: 0.8;
+}
+
+
+.address-hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.address-full {
+  display: none; 
+  padding: 2px 5px;
+}
+
+.address-hover:hover .address-full {
+  display: inline; 
+}
