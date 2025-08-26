@@ -1,10 +1,13 @@
-<h2>Manage user data <button  (click)="create()"   class="create-btn">Create Data</button></h2>
+ <h1 style="text-align: center;">this is data</h1>
 
- 
-<div *ngIf="storedData.length > 0">
+
+<div *ngIf="printData.length > 0">
   <div class="data-container">
     <mat-list role="list">
-      <div *ngFor="let data of storedData; let i = index">
+      <div *ngFor="let data of printData; let i = index">
+        <div class="d-flex justify-content-end">
+      <button (click)="onEdit(i)" class="btn btn-edit">Edit</button>
+         </div>
         <mat-list-item role="listitem">Number: {{ i +1}}</mat-list-item>
         <mat-list-item role="listitem">Name: {{ data.firstname +' ' + data.lastname}}</mat-list-item>
         <mat-list-item role="listitem">Email: {{ data.email }}</mat-list-item>
@@ -19,11 +22,8 @@
   </span>
 </mat-list-item>
       
+    <hr>
 
-          <button (click)="editData(i)" class="btn btn-edit">Edit</button>
-<button (click)="deleteData(i)" class="btn btn-delete">Delete</button>
-         <hr style="border: 1px solid black;">
- 
       </div>
     </mat-list>
   </div>

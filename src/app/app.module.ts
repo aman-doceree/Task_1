@@ -12,6 +12,10 @@ import { CreateComponent } from './create/create.component';
 import { ShowdataComponent } from './showdata/showdata.component';
 import {MatListModule} from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
+import { FilterComponent } from './filter/filter.component';
+import { DataComponent } from './filter/data/data.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { MatRadioModule } from '@angular/material/radio';
     ManageComponent,
     ListComponent,
     CreateComponent,
-    ShowdataComponent
+    ShowdataComponent,
+    HomeComponent,
+    SignupComponent,
+    FilterComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,

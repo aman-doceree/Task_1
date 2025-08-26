@@ -27,7 +27,7 @@ export class ShowdataComponent implements OnInit {
     editData(index: number): void {
     const selectedData = this.storedData[index];
     this.router.navigate(['/manage'], { state: { dataToEdit: selectedData, indexToEdit: index } });
-  }
+  } 
 
   deleteData(index: number): void {
     this.storedData.splice(index, 1);

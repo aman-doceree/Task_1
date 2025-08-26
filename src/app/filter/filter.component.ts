@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
+
 export interface EditState {
   dataToEdit: any;
   indexToEdit: number;
@@ -22,14 +23,17 @@ export function passwordStrengthValidator(
   }
   return null;
 }
- 
+
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.scss']
 })
-export class ListComponent implements OnInit {
-  contactForm!: FormGroup;
+export class FilterComponent implements OnInit {
+
+   printData: any[] = [];
+
+contactForm!: FormGroup;
   Sdata: any;
 
   indexToEdit: number | null = null;
@@ -86,27 +90,24 @@ export class ListComponent implements OnInit {
     }
   }
 
+  editIndex: number | null = null;
+   
   onSubmit() {
     if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
+    if (this.editIndex !== null) {
+      this.printData[this.editIndex] = this.contactForm.value;
+      this.editIndex = null;
+    } else {
+      this.printData.push(this.contactForm.value);
+    }
+    this.contactForm.reset();
+        }
+          }
 
-      let existingData = localStorage.getItem('formData');
+  onEditFromChild(index: number) {
+  this.editIndex = index;
+  const selectedData = this.printData[index];
+  this.contactForm.patchValue(selectedData);
+}
 
-      if (!existingData) {
-        existingData = '[]';
-      }
-
-      let parsedData = JSON.parse(existingData);
-
-      if (this.indexToEdit !== null && this.indexToEdit !== undefined) {
-        parsedData[this.indexToEdit] = formData;
-      } else {
-        parsedData.push(formData);
-      }
-
-      localStorage.setItem('formData', JSON.stringify(parsedData));
-      
-      this.router.navigate(['/showdata']);
-    } 
-  }
 }
